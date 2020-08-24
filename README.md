@@ -1,7 +1,8 @@
 # Masonite adapter for Inertia.js
 
 <p align="center">
-<img src="https://i.imgur.com/rEXcoMn.png" width="160px"> 
+<img src="https://i.imgur.com/rEXcoMn.png" width="160px">
+<img src="https://avatars1.githubusercontent.com/u/47703742?s=200&v=4" width="160px">
 </p>
 
 [Github Actions status](https://github.com/girardinsamuel/inertia-masonite/workflows/Test%20Application/badge.svg)
