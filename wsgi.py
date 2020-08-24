@@ -18,9 +18,8 @@ class PackageContainer:
         container = App()
 
         container.bind('WSGI', self.app)
+        # container.bind('Application', application)
         container.bind('Container', container)
-
-        container.bind('ProvidersConfig', providers)
         container.bind('Providers', [])
         container.bind('WSGIProviders', [])
 
@@ -37,7 +36,7 @@ class PackageContainer:
         |
         """
 
-        for provider in container.make('ProvidersConfig').PROVIDERS:
+        for provider in providers.PROVIDERS:
             located_provider = provider()
             located_provider.load_app(container).register()
             if located_provider.wsgi:
@@ -106,8 +105,9 @@ class PackageContainer:
         This will take the data variable from the Service Container and return
         it to the WSGI server.
         """
-        return iter([bytes(container.make('Response'), 'utf-8')])
+        return iter([container.make('Response')])
 
 
 container = PackageContainer().create()
+
 application = container.make('WSGI')

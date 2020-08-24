@@ -2,7 +2,7 @@
 
 import os
 
-from masonite.environment import LoadEnvironment
+from masonite.environment import LoadEnvironment, env
 from orator import DatabaseManager, Model
 
 """
@@ -29,16 +29,17 @@ LoadEnvironment()
 """
 
 DATABASES = {
-    'default': os.environ.get('DB_DRIVER'),
-    'sqlite': {
-        'driver': 'sqlite',
-        'database': os.environ.get('DB_DATABASE')
+    "default": os.environ.get("DB_DRIVER"),
+    "sqlite": {"driver": "sqlite", "database": os.environ.get("DB_DATABASE")},
+    "postgres": {
+        "driver": "postgres",
+        "host": env("DB_HOST"),
+        "database": env("DB_DATABASE"),
+        "port": env("DB_PORT"),
+        "user": env("DB_USERNAME"),
+        "password": env("DB_PASSWORD"),
+        "log_queries": env("DB_LOG"),
     },
-    os.environ.get('DB_DRIVER'): {
-        'driver': os.environ.get('DB_DRIVER'),
-        'database': os.environ.get('DB_DATABASE'),
-        'prefix': ''
-    }
 }
 
 DB = DatabaseManager(DATABASES)
