@@ -10,11 +10,11 @@ ci:
 	make test
 	make lint
 lint:
-	python -m flake8 src/masonite/package/ --ignore=E501,F401,E128,E402,E731,F821,E712,W503
+	python -m flake8 src/masonite/inertia/ --ignore=E501,F401,E128,E402,E731,F821,E712,W503
 format:
-	black src/masonite/package
+	black src/masonite/inertia
 coverage:
-	python -m pytest --cov-report term --cov-report xml --cov=src/masonite/package tests/
+	python -m pytest --cov-report term --cov-report xml --cov=src/masonite/inertia tests/
 	python -m coveralls
 publish:
 	pip install 'twine>=1.5.0'

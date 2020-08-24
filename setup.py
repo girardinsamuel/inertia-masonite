@@ -1,20 +1,20 @@
 from setuptools import setup, find_packages
 
 setup(
-    name="starter-package",
+    name="inertia-masonite",
     # Versions should comply with PEP440.  For a discussion on single-sourcing
     # the version across setup.py and the project code, see
     # https://packaging.python.org/en/latest/single_source_version.html
     version="0.0.1",
-    packages=["masonite.package"],
+    packages=["masonite.inertia"],
     package_dir={"": "src"},
-    description="Basic Boilerplate Package",
-    long_description="Basic Boilerplate Package",
+    description="Masonite adapter for Inertia.js",
+    long_description="Server-side Masonite adapter for Inertia.js",
     # The project's main homepage.
-    url="https://github.com/masoniteframework/starter-package",
+    url="https://github.com/girardinsamuel/inertia",
     # Author details
-    author="Your Name",
-    author_email="you@example.com",
+    author="Joseph Mancuso",
+    author_email="",
     # Choose your license
     license="MIT",
     # If your package should include things you specify in your MANIFEST.in file
@@ -48,7 +48,7 @@ setup(
         "Topic :: Software Development :: Libraries :: Python Modules",
     ],
     # What does your project relate to?
-    keywords="space separated keywords like this",
+    keywords="inertia python adapter backend masonite",
     # List run-time dependencies here.  These will be installed by pip when
     # your project is installed. For an analysis of "install_requires" vs pip's
     # requirements files see:
