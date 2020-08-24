@@ -1,10 +1,21 @@
+# Masonite adapter for Inertia.js
 
 <p align="center">
 <img src="https://i.imgur.com/rEXcoMn.png" width="160px"> 
 </p>
 
-[Github Actions status](https://github.com/MasoniteFramework/package/workflows/Test%20Application/badge.svg)
-[![Coverage Status](https://coveralls.io/repos/github/MasoniteFramework/package/badge.svg?branch=master)](https://coveralls.io/github/MasoniteFramework/package?branch=master)
+[Github Actions status](https://github.com/girardinsamuel/inertia-masonite/workflows/Test%20Application/badge.svg)
+[![Coverage Status](https://coveralls.io/repos/github/girardinsamuel/inertia-masonite/badge.svg?branch=master)](https://coveralls.io/github/girardinsamuel/inertia-masonite?branch=master)
+
+
+This repo contains the Masonite server-side adapter for [Inertia.js](https://inertiajs.com/).
+
+## Installation
+
+TODO
+
+For more information on how to use Inertia.js got to its [documentation](https://inertiajs.com/installation).
+
 
 ## Learning Masonite
 
@@ -35,8 +46,4 @@ Finally you can run the tests and start building your application.
 
 ```
 $ python -m pytest
-<<<<<<< HEAD
 ```
-=======
-```
->>>>>>> feat/refactor-ci
