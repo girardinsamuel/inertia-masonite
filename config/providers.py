@@ -17,6 +17,8 @@ from masonite.providers import (
     CsrfProvider,
 )
 
+from masonite.inertia import InertiaProvider
+
 """
 |--------------------------------------------------------------------------
 | Providers List
@@ -39,7 +41,6 @@ PROVIDERS = [
     StatusCodeProvider,
     # WhitenoiseProvider,
     ViewProvider,
-
     # Optional Framework Providers
     # SassProvider,
     # MailProvider,
@@ -50,9 +51,7 @@ PROVIDERS = [
     # CacheProvider,
     CsrfProvider,
     # HelpersProvider,
-
     # Third Party Providers
-
     # Application Providers
-
+    InertiaProvider,
 ]

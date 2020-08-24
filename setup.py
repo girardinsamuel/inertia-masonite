@@ -6,7 +6,13 @@ setup(
     # the version across setup.py and the project code, see
     # https://packaging.python.org/en/latest/single_source_version.html
     version="0.0.1",
-    packages=["masonite.inertia"],
+    packages=[
+        "masonite.inertia",
+        "masonite.inertia.providers",
+        "masonite.inertia.middleware",
+        "masonite.inertia.commands",
+        "masonite.inertia.core",
+    ],
     package_dir={"": "src"},
     description="Masonite adapter for Inertia.js",
     long_description="Server-side Masonite adapter for Inertia.js",

@@ -2,7 +2,7 @@
 import os
 from masonite.provider import ServiceProvider
 
-from masonite.inertia.InertiaResponse import InertiaResponse
+from masonite.inertia.core.InertiaResponse import InertiaResponse
 from masonite.inertia.commands.InstallCommand import InstallCommand
 from masonite.inertia.commands.DemoCommand import DemoCommand
 

@@ -2,7 +2,7 @@ import html
 import json
 import os
 
-from app.inertia.InertiaAssetVersion import inertia_asset_version
+from masonite.inertia.core.InertiaAssetVersion import inertia_asset_version
 from masonite.helpers import compact
 from masonite.helpers.routes import flatten_routes
 from masonite.response import Responsable
