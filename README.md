@@ -45,8 +45,10 @@ from masonite.inertia.InertiaProvider import InertiaProvider
 
 # ...
 PROVIDERS = [
-    LoadUserMiddleware,
-    CsrfMiddleware,
+    # Framework Providers
+    AppProvider,
+    AuthenticationProvider,
+
     #...
     InertiaProvider,
 ]
