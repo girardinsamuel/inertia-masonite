@@ -4,6 +4,7 @@ from masonite.provider import ServiceProvider
 
 from masonite.inertia.InertiaResponse import InertiaResponse
 from masonite.inertia.commands.InstallCommand import InstallCommand
+from masonite.inertia.commands.DemoCommand import DemoCommand
 
 
 class InertiaProvider(ServiceProvider):
@@ -14,9 +15,11 @@ class InertiaProvider(ServiceProvider):
     def register(self):
         self.app.bind("Inertia", InertiaResponse(self.app))
         self.app.bind("InstallCommand", InstallCommand())
+        self.app.bind("DemoCommand", DemoCommand())
 
     def boot(self):
-        app_path = os.path.join(os.path.dirname(__file__), "../snippets/static")
+        snippets_path = os.path.join(os.path.dirname(__file__), "../snippets")
+        app_path = os.path.join(snippets_path, "static")
 
         self.publishes(
             {
@@ -26,3 +29,9 @@ class InertiaProvider(ServiceProvider):
                 os.path.join(app_path, "pages/HelloWorld.vue"): "storage/static/js/pages/HelloWorld.vue"
             }, tag="app"
         )
+
+        self.publishes({
+            os.path.join(snippets_path, "controllers/InertiaController.py"): "app/controllers/InertiaController.py",
+        }, tag="demo")
+
+        # TODO append two routes
