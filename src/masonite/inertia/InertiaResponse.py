@@ -13,11 +13,12 @@ class InertiaResponse(Responsable):
         self.container = container
         self.request = self.container.make("Request")
         self.view = self.container.make("View")
-        self.rendered_template = ''
+        self.rendered_template = ""
         self.load_routes()
 
     def load_routes(self):
         from routes.web import ROUTES
+
         self.routes = {}
         for route in flatten_routes(ROUTES):
             if route.named_route:
@@ -29,20 +30,21 @@ class InertiaResponse(Responsable):
         if self.request.is_inertia:
             self.rendered_template = json.dumps(page_data)
             return self
-        
+
         self.rendered_template = self.view(
-            "app", {"page": html.escape(json.dumps(page_data))}).rendered_template
+            "app", {"page": html.escape(json.dumps(page_data))}
+        ).rendered_template
 
         return self
 
     def get_response(self):
         return self.rendered_template
-    
+
     def show_full_render(self):
         return self
         # from slugify import slugify
         # import requests
-        # from masonite import env 
+        # from masonite import env
         # print('show full render')
         # print('woo show full render')
         # bots = ['googlebot']
@@ -63,7 +65,7 @@ class InertiaResponse(Responsable):
             "props": self.get_props(props),
             "url": self.request.path,
             "version": inertia_asset_version(),
-            "routes": self.routes
+            "routes": self.routes,
         }
 
     def get_props(self, props):
@@ -76,17 +78,17 @@ class InertiaResponse(Responsable):
     def get_auth(self):
         user = self.request.user()
 
-        csrf = self.request.get_cookie('csrf_token', decrypt=False)
+        csrf = self.request.get_cookie("csrf_token", decrypt=False)
 
-        self.request.cookie('XSRF-TOKEN', csrf, http_only=False, encrypt=False)
+        self.request.cookie("XSRF-TOKEN", csrf, http_only=False, encrypt=False)
 
         if not user:
             return {"user": None}
-        
-        user.__hidden__ = ['password', 'remember_token']
-        user.set_appends(['meta'])
 
-        return {"user": user.serialize() }
+        user.__hidden__ = ["password", "remember_token"]
+        user.set_appends(["meta"])
+
+        return {"user": user.serialize()}
 
     def get_messages(self):
         return {
@@ -94,7 +96,7 @@ class InertiaResponse(Responsable):
             "error": (self.request.session.get("error") or ""),
             "danger": (self.request.session.get("danger") or ""),
             "warning": (self.request.session.get("warning") or ""),
-            "info": (self.request.session.get("info") or "")
+            "info": (self.request.session.get("info") or ""),
         }
 
     def get_errors(self):

@@ -23,15 +23,27 @@ class InertiaProvider(ServiceProvider):
 
         self.publishes(
             {
-                os.path.join(app_path, "mix-manifest.json"): "storage/static/js/mix-manifest.json",
+                os.path.join(
+                    app_path, "mix-manifest.json"
+                ): "storage/static/js/mix-manifest.json",
                 os.path.join(app_path, "app.js"): "storage/static/js/app.js",
-                os.path.join(app_path, "pages/Index.vue"): "storage/static/js/pages/Index.vue"
-                os.path.join(app_path, "pages/HelloWorld.vue"): "storage/static/js/pages/HelloWorld.vue"
-            }, tag="app"
+                os.path.join(
+                    app_path, "pages/Index.vue"
+                ): "storage/static/js/pages/Index.vue",
+                os.path.join(
+                    app_path, "pages/HelloWorld.vue"
+                ): "storage/static/js/pages/HelloWorld.vue",
+            },
+            tag="app",
         )
 
-        self.publishes({
-            os.path.join(snippets_path, "controllers/InertiaController.py"): "app/controllers/InertiaController.py",
-        }, tag="demo")
+        self.publishes(
+            {
+                os.path.join(
+                    snippets_path, "controllers/InertiaController.py"
+                ): "app/controllers/InertiaController.py",
+            },
+            tag="demo",
+        )
 
         # TODO append two routes
