@@ -4,7 +4,7 @@ from masonite.helpers import config
 
 
 def inertia_asset_version():
-    manifest = config("resources.public_path") + "/mix-manifest.json"
+    manifest = config("inertia.public_path") + "/mix-manifest.json"
 
     hasher = hashlib.md5()
     with open(manifest, "rb") as manifest_file:

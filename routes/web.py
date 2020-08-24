@@ -1,6 +1,9 @@
 """ Web Routes """
 from masonite.routes import Get, Post
 
+from app.http.controllers.InertiaController import InertiaController
+
+
 ROUTES = [
-    Get('/', 'PackageController@show').name('welcome'),
+    Get("/", "InertiaController@show"),
 ]

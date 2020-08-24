@@ -25,7 +25,7 @@ class InertiaProvider(ServiceProvider):
             {
                 os.path.join(
                     app_path, "mix-manifest.json"
-                ): "storage/static/js/mix-manifest.json",
+                ): "storage/static/mix-manifest.json",
                 os.path.join(app_path, "app.js"): "storage/static/js/app.js",
                 os.path.join(
                     app_path, "pages/Index.vue"
@@ -40,8 +40,8 @@ class InertiaProvider(ServiceProvider):
         self.publishes(
             {
                 os.path.join(
-                    snippets_path, "controllers/InertiaController.py"
-                ): "app/controllers/InertiaController.py",
+                    snippets_path, "demo/InertiaController.py"
+                ): "app/http/controllers/InertiaController.py",
             },
             tag="demo",
         )

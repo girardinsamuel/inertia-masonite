@@ -42,7 +42,7 @@ We can add the provider to our `config/providers.py` file like so:
 ```python
 # config/providers.py
 # ...
-from masonite.inertia.InertiaProvider import InertiaProvider
+from masonite.inertia import InertiaProvider
 
 # ...
 PROVIDERS = [
@@ -62,7 +62,7 @@ This Inertia adapter comes with a middleware that will control some of the flow 
 ```python
 # config/middleware.py
 # ...
-from masonite.inertia.InertiaMiddleware import InertiaMiddleware
+from masonite.inertia import InertiaMiddleware
 
 # ...
 HTTP_MIDDLEWARE = [
@@ -125,7 +125,7 @@ And finally create the controller methods. We just need to use the new `InertiaR
 
 ```python
 # app/controllers/InertiaController.py
-from masonite.inertia.InertiaResponse import InertiaResponse
+from masonite.inertia import InertiaResponse
 
 ## ..
 def inertia(self, view: InertiaResponse):

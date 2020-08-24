@@ -1,1 +1,1 @@
-# include src/package/some/directory/*
+graft src/masonite/inertia/snippets/
