@@ -28,14 +28,6 @@ To get started you will need the following:
 
 ## Installation
 
-### NPM
-
-First we'll need to install some NPM packages (we are using Vue here as frontend framework and `inertia-vue` as Inertia.js client-side adapter):
-
-```
-$ npm install vue @inertiajs/inertia @inertiajs/inertia-vue
-```
-
 ### Install the package
 
 ```
@@ -91,6 +83,14 @@ Then, if you want you can quicky scaffold a Vue app with two components to test 
 
 ```
 python craft publish InertiaProvider --tag app
+```
+
+### Install NPM dependencies
+
+First we'll need to install some NPM packages (we are using Vue here as frontend framework and `inertia-vue` as Inertia.js client-side adapter):
+
+```
+$ npm install vue @inertiajs/inertia @inertiajs/inertia-vue
 ```
 
 
