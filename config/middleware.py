@@ -24,7 +24,7 @@ HTTP_MIDDLEWARE = [
     LoadUserMiddleware,
     CsrfMiddleware,
     ResponseMiddleware,
-    InertiaMiddleware,
+    # InertiaMiddleware,
 ]
 
 """
