@@ -11,9 +11,6 @@ class InertiaController(Controller):
         return view.render("app")
 
     def inertia(self, view: InertiaResponse):
-        import pdb
-
-        pdb.set_trace()
         return view.render("Index")
 
     def helloworld(self, view: InertiaResponse):

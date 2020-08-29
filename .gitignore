@@ -7,3 +7,5 @@ masonite_validation*
 dist
 .env
 *.db
+
+node_modules

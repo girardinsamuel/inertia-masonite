@@ -6,6 +6,6 @@ from app.http.controllers.TestController import TestController
 
 
 ROUTES = [
-    Get("/test", TestController.show),
     Get("/", "InertiaController@inertia"),
+    Get("/helloworld", "InertiaController@helloworld"),
 ]
