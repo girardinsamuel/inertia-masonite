@@ -1,0 +1,9 @@
+[run]
+source = src/masonite/inertia
+
+[report]
+ignore_errors = True
+omit =
+    */tests/*
+    src/masonite/inertia/commands/*
+    src/masonite/inertia/snippets/*

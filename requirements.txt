@@ -1,3 +1,5 @@
 masonite>=2.3
 flake8
 pytest
+coveralls
+pytest-cov
