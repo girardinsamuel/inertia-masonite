@@ -5,9 +5,9 @@
 <img src="https://avatars1.githubusercontent.com/u/47703742?s=200&v=4" width="130px">
 </p>
 
-[Github Actions status](https://github.com/girardinsamuel/inertia-masonite/workflows/Test%20Application/badge.svg)
-
-[![Coverage Status](https://coveralls.io/repos/github/girardinsamuel/inertia-masonite/badge.svg?branch=master)](https://coveralls.io/github/girardinsamuel/inertia-masonite?branch=master)
+[![Test Application](https://github.com/girardinsamuel/inertia-masonite/workflows/Test%20Application/badge.svg?branch=master)](https://github.com/girardinsamuel/inertia-masonite/actions)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+[![codecov](https://codecov.io/gh/girardinsamuel/inertia-masonite/branch/master/graph/badge.svg)](https://codecov.io/gh/girardinsamuel/inertia-masonite)
 
 
 This repo contains the Masonite server-side adapter for [Inertia.js](https://inertiajs.com/).
