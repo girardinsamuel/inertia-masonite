@@ -1,11 +1,12 @@
 # Masonite adapter for Inertia.js
 
 <p align="center">
-<img src="https://i.imgur.com/rEXcoMn.png" width="160px">
-<img src="https://avatars1.githubusercontent.com/u/47703742?s=200&v=4" width="160px">
+<img src="https://i.imgur.com/rEXcoMn.png" width="130px">
+<img src="https://avatars1.githubusercontent.com/u/47703742?s=200&v=4" width="130px">
 </p>
 
 [Github Actions status](https://github.com/girardinsamuel/inertia-masonite/workflows/Test%20Application/badge.svg)
+
 [![Coverage Status](https://coveralls.io/repos/github/girardinsamuel/inertia-masonite/badge.svg?branch=master)](https://coveralls.io/github/girardinsamuel/inertia-masonite?branch=master)
 
 
@@ -17,7 +18,7 @@ Inertia is a new approach to building classic server-driven web apps. From their
 
 > Inertia allows you to create fully client-side rendered, single-page apps, without much of the complexity that comes with modern SPAs. It does this by leveraging existing server-side frameworks.
 
-Inertia requires an adapter for each backend framework. This Gist contains the adapter for the Masonite framework.
+Inertia requires an adapter for each backend framework. This repo contains the server-side adapter for the Masonite framework.
 
 ## Requirements
 
@@ -25,7 +26,7 @@ To get started you will need the following:
 
 * Masonite 2.3+
 * Laravel Mix installed (new Masonite 2.3 projects come with this installed already)
-* NPM
+* a Node.js environment (npm or yarn)
 
 ## Installation
 
