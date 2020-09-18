@@ -18,7 +18,7 @@ from masonite.providers import (
 )
 
 from masonite.inertia import InertiaProvider
-
+from app.providers.MyAppProvider import MyAppProvider
 """
 |--------------------------------------------------------------------------
 | Providers List
@@ -54,4 +54,5 @@ PROVIDERS = [
     # Third Party Providers
     # Application Providers
     InertiaProvider,
+    MyAppProvider,
 ]

@@ -13,8 +13,12 @@ class InertiaResponse(Responsable):
         self.container = container
         self.request = self.container.make("Request")
         self.view = self.container.make("View")
+        self.root_view = "app"
         self.rendered_template = ""
         self.load_routes()
+
+    def set_root_view(self, root_view):
+        self.root_view = root_view
 
     def load_routes(self):
         from routes.web import ROUTES
@@ -32,7 +36,7 @@ class InertiaResponse(Responsable):
             return self
 
         self.rendered_template = self.view(
-            "app", {"page": html.escape(json.dumps(page_data))}
+            self.root_view, {"page": html.escape(json.dumps(page_data))}
         ).rendered_template
 
         return self
