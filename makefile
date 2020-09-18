@@ -14,7 +14,7 @@ lint:
 format:
 	black src/masonite/inertia
 coverage:
-	python -m pytest --cov-report term --cov-report xml tests/
+	python -m pytest --cov-report term --cov-report xml --cov=src/masonite/inertia tests/
 publish:
 	pip install 'twine>=1.5.0'
 	python setup.py sdist bdist_wheel
