@@ -8,7 +8,7 @@
 [![Test Application](https://github.com/girardinsamuel/inertia-masonite/workflows/Test%20Application/badge.svg?branch=master)](https://github.com/girardinsamuel/inertia-masonite/actions)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 [![codecov](https://codecov.io/gh/girardinsamuel/inertia-masonite/branch/master/graph/badge.svg)](https://codecov.io/gh/girardinsamuel/inertia-masonite)
-
+<img src="https://img.shields.io/badge/python-3.5+-blue.svg" alt="Python Version">
 
 This repo contains the Masonite server-side adapter for [Inertia.js](https://inertiajs.com/).
 
