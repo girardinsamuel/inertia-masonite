@@ -14,6 +14,7 @@ class InertiaResponse(Responsable):
         self.request = self.container.make("Request")
         self.view = self.container.make("View")
         self.root_view = "app"
+        self.shared_props = {}
         self.rendered_template = ""
         self.load_routes()
 
@@ -44,33 +45,36 @@ class InertiaResponse(Responsable):
     def get_response(self):
         return self.rendered_template
 
-    def show_full_render(self):
-        return self
-        # from slugify import slugify
-        # import requests
-        # from masonite import env
-        # print('show full render')
-        # print('woo show full render')
-        # bots = ['googlebot']
-        # print(self.request.header('HTTP_USER_AGENT').lower())
-        # if self.request.header('HTTP_USER_AGENT').lower() in bots:
-        #     print('its a bot!!!')
-        #     path = slugify(self.request.path)
-        #     if os.path.exists(f'storage/routes/{path}.html'):
-        #         with open(f'storage/routes/{path}.html') as file:
-        #             self.rendered_template = file.read()
-        # else:
-        #     print('NOT A BOT')
-        # return self
-
     def get_page_data(self, component, props):
+        # merge shared props with page props
+        props = {**self.get_props(props), **self.get_shared_props()}
+        # check if some lazy loaded props needs to be resolved
+        def load_lazy_props(d):
+            for k,v in d.items():
+                if isinstance(v, dict):
+                    load_lazy_props(v)
+                elif callable(v):
+                    d[k] = v()
+        load_lazy_props(props)
         return {
             "component": self.get_component(component),
-            "props": self.get_props(props),
+            "props": props,
             "url": self.request.path,
             "version": inertia_asset_version(),
             "routes": self.routes,
         }
+
+    def get_shared_props(self, key=None):
+        if key:
+            return self.shared_props.get(key, None)
+        else:
+            return self.shared_props
+
+    def share(self, key, value=None):
+        if isinstance(key, dict):
+            self.shared_props = {**self.shared_props, **key}
+        else:
+            self.shared_props.update({key: value})
 
     def get_props(self, props):
         props.update({"errors": self.get_errors()})
@@ -90,7 +94,8 @@ class InertiaResponse(Responsable):
             return {"user": None}
 
         user.__hidden__ = ["password", "remember_token"]
-        user.set_appends(["meta"])
+        # @josephmancuso, what is self meta attribute ? It gives me error when querying user
+        # user.set_appends(["meta"])
 
         return {"user": user.serialize()}
 
