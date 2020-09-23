@@ -22,6 +22,14 @@ class InertiaMiddleware:
             self.request.header("X-Inertia-Location", self.request.path)
             return self.response.view("", status=409)
 
+        # use 303 response code when redirecting from PUT, PATCH, DELETE requests
+        if (
+            self.request.is_inertia
+            and self.request.method in ["PUT", "PATCH", "DELETE"]
+            and self.response.status_code == 302
+        ):
+            self.response.status_code = 303
+
     def after(self):
         if self.request.is_inertia:
             self.request.header("Vary", "Accept")
