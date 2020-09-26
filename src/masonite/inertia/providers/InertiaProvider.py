@@ -1,10 +1,12 @@
 """A InertiaProvider Service Provider."""
 import os
 from masonite.provider import ServiceProvider
+from masonite.view import View
 
 from masonite.inertia.core.InertiaResponse import InertiaResponse
 from masonite.inertia.commands.InstallCommand import InstallCommand
 from masonite.inertia.commands.DemoCommand import DemoCommand
+from masonite.inertia.helpers import inertia
 
 
 class InertiaProvider(ServiceProvider):
@@ -17,8 +19,13 @@ class InertiaProvider(ServiceProvider):
         self.app.bind("InstallCommand", InstallCommand())
         self.app.bind("DemoCommand", DemoCommand())
 
-    def boot(self):
-        pass
+    def boot(self, view: View):
+        self.register_view_helper(view)
+
+    def register_view_helper(self, view):
+        view.share({
+            "inertia": inertia
+        })
         # snippets_path = os.path.join(os.path.dirname(__file__), "../snippets")
         # app_path = os.path.join(snippets_path, "static")
 

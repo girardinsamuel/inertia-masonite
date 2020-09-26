@@ -46,9 +46,9 @@ class InertiaResponse(Responsable):
         return self.rendered_template
 
     def get_page_data(self, component, props):
-        # merge shared props with page props
+        # merge shared props with page props (lazy props are resolved now)
         props = {**self.get_props(props), **self.get_shared_props()}
-        # check if some lazy loaded props needs to be resolved
+
         def load_lazy_props(d):
             for k,v in d.items():
                 if isinstance(v, dict):
@@ -56,6 +56,7 @@ class InertiaResponse(Responsable):
                 elif callable(v):
                     d[k] = v()
         load_lazy_props(props)
+
         return {
             "component": self.get_component(component),
             "props": props,
@@ -77,6 +78,21 @@ class InertiaResponse(Responsable):
             self.shared_props.update({key: value})
 
     def get_props(self, props):
+        # if partial reload, only use given props
+        """
+                $only = array_filter(explode(',', $request->header('X-Inertia-Partial-Data')));
+
+        $props = ($only && $request->header('X-Inertia-Partial-Component') === $this->component)
+            ? Arr::only($this->props, $only)
+            : $this->props
+        """
+        import pdb
+        pdb.set_trace()
+        only_props = self.request.header("X-Inertia-Partial-Data")
+        if only_props and self.request.header("X-Inertia-Partial-Component") == self.component:
+            pass
+
+        # add adapter data to props
         props.update({"errors": self.get_errors()})
         props.update({"auth": self.get_auth()})
         props.update({"messages": self.get_messages()})
